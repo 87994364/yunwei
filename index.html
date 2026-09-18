@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>粤明便利运维部 · 点位信息表</title><style>
+:root{--brand:#1d6fb8;--brand-dark:#155488;--bg:#f4f6f9;--card:#fff;--line:#e3e8ef;--text:#1f2933;--muted:#6b7785;}
+*{box-sizing:border-box;}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-text-size-adjust:100%;}
+.wrap{max-width:760px;margin:0 auto;padding:16px 14px 60px;}
+header.top{background:linear-gradient(135deg,var(--brand),var(--brand-dark));color:#fff;border-radius:14px;padding:18px 20px;margin-bottom:14px;box-shadow:0 4px 14px rgba(29,111,184,.25);}
+header.top h1{margin:0;font-size:20px;letter-spacing:.5px;}
+header.top p{margin:4px 0 0;font-size:13px;opacity:.9;}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0;}
+.btn{border:none;border-radius:10px;padding:9px 14px;font-size:14px;cursor:pointer;font-weight:600;transition:.15s;text-decoration:none;display:inline-block;}
+.btn-primary{background:var(--brand);color:#fff;}
+.btn-primary:active{background:var(--brand-dark);}
+.btn-ghost{background:#fff;color:var(--brand);border:1px solid var(--brand);}
+.btn-soft{background:#eef3f8;color:var(--muted);border:1px solid var(--line);}
+.btn-danger{background:#fff;color:#c0392b;border:1px solid #e6b3ad;}
+.btn-danger:active{background:#fdecea;}
+.section{background:var(--card);border-radius:14px;padding:14px 16px;margin-bottom:14px;box-shadow:0 2px 8px rgba(20,40,70,.06);border:1px solid var(--line);}
+.section h2{margin:0 0 12px;font-size:16px;display:flex;align-items:center;gap:8px;color:var(--brand-dark);border-left:4px solid var(--brand);padding-left:10px;}
+.inv-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
+.inv-row label{font-size:14px;font-weight:600;min-width:42px;color:var(--muted);}
+.inv-row .unit{color:var(--muted);font-size:13px;}
+input[type=text],input[type=number],input[type=date],select,textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:15px;font-family:inherit;background:#fbfcfe;color:var(--text);outline:none;}
+input:focus,select:focus,textarea:focus{border-color:var(--brand);background:#fff;}
+textarea{resize:vertical;min-height:54px;}
+.field{margin-bottom:11px;}
+.field > label{display:block;font-size:13.5px;font-weight:600;margin-bottom:5px;color:var(--text);}
+.field .hint{font-size:11.5px;color:var(--muted);font-weight:400;margin-left:4px;}
+.op-card{border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px;background:#fff;}
+.op-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.op-head .ttl{font-size:16px;font-weight:700;color:var(--brand-dark);display:flex;align-items:center;gap:7px;}
+.badge{font-size:11px;background:var(--brand);color:#fff;border-radius:6px;padding:2px 7px;font-weight:600;}
+.nav-grid{display:grid;grid-template-columns:1fr;gap:12px;}
+.nav-card{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(20,40,70,.06);}
+.nav-card .nt{font-size:17px;font-weight:700;color:var(--brand-dark);}
+.nav-card .nd{font-size:13px;color:var(--muted);margin-top:4px;}
+.nav-card .nx{float:right;font-size:22px;}
+.toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(20px);background:#1f2933;color:#fff;padding:10px 18px;border-radius:10px;font-size:14px;opacity:0;pointer-events:none;transition:.25s;z-index:50;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+footer.note{text-align:center;color:var(--muted);font-size:12px;margin-top:8px;}
+@page{size:A4;margin:8mm;}
+@media print{body{background:#fff;font-size:13px;}.toolbar,.toast,footer.note{display:none !important;}.wrap{max-width:none;padding:0;}.section{margin-bottom:8px;padding:10px 12px;box-shadow:none;break-inside:avoid;page-break-inside:avoid;}.op-card{margin-bottom:8px;padding:10px;box-shadow:none;break-inside:avoid;page-break-inside:avoid;}.field{margin-bottom:6px;}.header.top{-webkit-print-color-adjust:exact;print-color-adjust:exact;}input,select,textarea{border-color:#bbb !important;background:#fff !important;}input::placeholder,textarea::placeholder{color:transparent !important;}}
+</style></head><body><div class="wrap"><header class="top"><h1>粤明便利运维部 · 点位信息表</h1><p>东莞市粤明智能科技 · 落机 / 挪机 / 撤机</p></header><div class="section"><h2>📋 选择操作板块</h2><div class="nav-grid"><a class="nav-card" href="pages/落机.html"><span class="nx">📍</span><div class="nt">落机点位</div><div class="nd">设备安装到新点位</div></a><a class="nav-card" href="pages/挪机.html"><span class="nx">🔄</span><div class="nt">挪机点位</div><div class="nd">点位间设备迁移</div></a><a class="nav-card" href="pages/撤机.html"><span class="nx">🗑️</span><div class="nt">撤机点位</div><div class="nd">设备回收下架</div></a></div></div><footer class="note">每个板块为独立页面，分别登记与复制。</footer></div></body></html>
