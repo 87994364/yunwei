@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>粤明便利运维部 · 落机点位信息表</title><style>
+:root{--brand:#1d6fb8;--brand-dark:#155488;--bg:#f4f6f9;--card:#fff;--line:#e3e8ef;--text:#1f2933;--muted:#6b7785;}
+*{box-sizing:border-box;}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-text-size-adjust:100%;}
+.wrap{max-width:760px;margin:0 auto;padding:16px 14px 60px;}
+header.top{background:linear-gradient(135deg,var(--brand),var(--brand-dark));color:#fff;border-radius:14px;padding:18px 20px;margin-bottom:14px;box-shadow:0 4px 14px rgba(29,111,184,.25);}
+header.top h1{margin:0;font-size:20px;letter-spacing:.5px;}
+header.top p{margin:4px 0 0;font-size:13px;opacity:.9;}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0;}
+.btn{border:none;border-radius:10px;padding:9px 14px;font-size:14px;cursor:pointer;font-weight:600;transition:.15s;text-decoration:none;display:inline-block;}
+.btn-primary{background:var(--brand);color:#fff;}
+.btn-primary:active{background:var(--brand-dark);}
+.btn-ghost{background:#fff;color:var(--brand);border:1px solid var(--brand);}
+.btn-soft{background:#eef3f8;color:var(--muted);border:1px solid var(--line);}
+.btn-danger{background:#fff;color:#c0392b;border:1px solid #e6b3ad;}
+.btn-danger:active{background:#fdecea;}
+.section{background:var(--card);border-radius:14px;padding:14px 16px;margin-bottom:14px;box-shadow:0 2px 8px rgba(20,40,70,.06);border:1px solid var(--line);}
+.section h2{margin:0 0 12px;font-size:16px;display:flex;align-items:center;gap:8px;color:var(--brand-dark);border-left:4px solid var(--brand);padding-left:10px;}
+.inv-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
+.inv-row label{font-size:14px;font-weight:600;min-width:42px;color:var(--muted);}
+.inv-row .unit{color:var(--muted);font-size:13px;}
+input[type=text],input[type=number],input[type=date],select,textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:15px;font-family:inherit;background:#fbfcfe;color:var(--text);outline:none;}
+input:focus,select:focus,textarea:focus{border-color:var(--brand);background:#fff;}
+textarea{resize:vertical;min-height:54px;}
+.field{margin-bottom:11px;}
+.field > label{display:block;font-size:13.5px;font-weight:600;margin-bottom:5px;color:var(--text);}
+.field .hint{font-size:11.5px;color:var(--muted);font-weight:400;margin-left:4px;}
+.op-card{border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px;background:#fff;}
+.op-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.op-head .ttl{font-size:16px;font-weight:700;color:var(--brand-dark);display:flex;align-items:center;gap:7px;}
+.badge{font-size:11px;background:var(--brand);color:#fff;border-radius:6px;padding:2px 7px;font-weight:600;}
+.nav-grid{display:grid;grid-template-columns:1fr;gap:12px;}
+.nav-card{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(20,40,70,.06);}
+.nav-card .nt{font-size:17px;font-weight:700;color:var(--brand-dark);}
+.nav-card .nd{font-size:13px;color:var(--muted);margin-top:4px;}
+.nav-card .nx{float:right;font-size:22px;}
+.toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(20px);background:#1f2933;color:#fff;padding:10px 18px;border-radius:10px;font-size:14px;opacity:0;pointer-events:none;transition:.25s;z-index:50;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+footer.note{text-align:center;color:var(--muted);font-size:12px;margin-top:8px;}
+@page{size:A4;margin:8mm;}
+@media print{body{background:#fff;font-size:13px;}.toolbar,.toast,footer.note{display:none !important;}.wrap{max-width:none;padding:0;}.section{margin-bottom:8px;padding:10px 12px;box-shadow:none;break-inside:avoid;page-break-inside:avoid;}.op-card{margin-bottom:8px;padding:10px;box-shadow:none;break-inside:avoid;page-break-inside:avoid;}.field{margin-bottom:6px;}.header.top{-webkit-print-color-adjust:exact;print-color-adjust:exact;}input,select,textarea{border-color:#bbb !important;background:#fff !important;}input::placeholder,textarea::placeholder{color:transparent !important;}}
+</style></head><body data-op="落机"><div class="wrap"><header class="top"><h1>粤明便利运维部 · 落机点位信息表</h1><p>东莞市粤明智能科技 · 设备安装登记</p></header><div class="toolbar"><a class="btn btn-soft" href="../index.html">← 首页</a><button class="btn btn-primary" id="copyBtn">📋 复制本单</button><button class="btn btn-ghost" id="printBtn">🖨 打印/导出</button><button class="btn btn-danger" id="clearBtn">🗑 清空</button></div>
+<div class="section">
+  <h2>📦 设备出入库</h2>
+  <div class="inv-row"><label>出库</label><input type="number" id="outCount" placeholder="0" style="max-width:110px"><span class="unit">台，编号</span><input type="text" id="outNo" placeholder="如 A001、A002…" style="flex:1;min-width:160px"></div>
+  <div class="inv-row"><label>入库</label><input type="number" id="inCount" placeholder="0" style="max-width:110px"><span class="unit">台，编号</span><input type="text" id="inNo" placeholder="如 B001、B002…" style="flex:1;min-width:160px"></div>
+</div>
+<div class="op-card"><div class="op-head"><div class="ttl">📍 落机 <span class="badge">安装</span></div></div><div class="field"><label>落机地址</label><textarea id="f_落机_落机地址" data-label="落机地址" placeholder="填写详细地址"></textarea></div><div class="field"><label>点位成本 <span class="hint">场地/电费等</span></label><input type="text" id="f_落机_点位成本" data-label="点位成本" placeholder=""></div><div class="field"><label>场地费对接负责人信息</label><input type="text" id="f_落机_场地费对接负责人信息" data-label="场地费对接负责人信息" placeholder="姓名 + 电话"></div><div class="field"><label>是否需要接电</label><select id="f_落机_是否需要接电" data-label="是否需要接电"><option value="否">否</option><option value="是">是</option></select></div><div class="field"><label>是否需要雨棚</label><select id="f_落机_是否需要雨棚" data-label="是否需要雨棚"><option value="否">否</option><option value="是">是</option></select></div><div class="field"><label>点位推荐人</label><input type="text" id="f_落机_点位推荐人" data-label="点位推荐人" placeholder="推荐人姓名"></div><div class="field"><label>点位审核人</label><input type="text" id="f_落机_点位审核人" data-label="点位审核人" placeholder="审核人姓名"></div><div class="field"><label>日期</label><input type="date" id="f_落机_日期" data-label="日期"></div><div class="field"><label>备注</label><textarea id="f_落机_备注" data-label="备注" placeholder="其他需要说明的情况"></textarea></div></div><footer class="note">数据自动保存在本机浏览器（localStorage），换设备不同步。</footer></div><div class="toast" id="toast"></div>
+<script>
+(function(){
+  var OP = document.body.getAttribute('data-op');
+  var STORE = 'ym_ops_' + OP;
+  function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show');},1600);}
+  function getVal(id){var e=document.getElementById(id);return e?(e.value||'').trim():'';}
+  function collectInv(){
+    var out=getVal('outCount')||'0',outNo=getVal('outNo')||'-',inc=getVal('inCount')||'0',inNo=getVal('inNo')||'-';
+    return '【设备出入库】\n出库：'+out+' 台（编号：'+outNo+'）\n入库：'+inc+' 台（编号：'+inNo+'）';
+  }
+  function collectCard(){
+    var lines=['【'+OP+'】'];
+    document.querySelectorAll('.op-card [data-label]').forEach(function(e){var v=(e.value||'').trim();lines.push(e.getAttribute('data-label')+'：'+(v||'（未填）'));});
+    return lines.join('\n');
+  }
+  function copyText(t){
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast('已复制到剪贴板');},function(){fallback(t);});}
+    else{fallback(t);}
+  }
+  function fallback(t){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast('已复制到剪贴板');}catch(e){toast('复制失败，请手动选择');}document.body.removeChild(ta);}
+  function copyAll(){copyText('粤明便利运维部 · '+OP+'点位信息表\n\n'+collectInv()+'\n\n'+collectCard());}
+  function save(){var d={};document.querySelectorAll('input,select,textarea').forEach(function(e){if(e.id)d[e.id]=e.value;});try{localStorage.setItem(STORE,JSON.stringify(d));}catch(e){}}
+  function load(){var raw;try{raw=localStorage.getItem(STORE);}catch(e){raw=null;}if(!raw)return;try{var d=JSON.parse(raw);Object.keys(d).forEach(function(id){var e=document.getElementById(id);if(e)e.value=d[id];});}catch(e){}}
+  function setToday(){var t=new Date().toISOString().slice(0,10);document.querySelectorAll('input[type=date]').forEach(function(e){if(!e.value)e.value=t;});}
+  function clearAll(){if(!confirm('确定清空本页所有填写内容？'))return;document.querySelectorAll('input,select,textarea').forEach(function(e){e.value='';});try{localStorage.removeItem(STORE);}catch(e){}setToday();toast('已清空');}
+  document.getElementById('copyBtn').addEventListener('click',copyAll);
+  document.getElementById('printBtn').addEventListener('click',function(){window.print();});
+  document.getElementById('clearBtn').addEventListener('click',clearAll);
+  document.addEventListener('input',save);
+  load();if(!localStorage.getItem(STORE))setToday();
+})();
+</script>
+</body></html>
